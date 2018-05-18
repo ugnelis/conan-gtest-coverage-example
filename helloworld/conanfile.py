@@ -1,3 +1,4 @@
+import os
 from conans import ConanFile, tools, CMake
 
 
@@ -36,3 +37,7 @@ class HelloWorldConan(ConanFile):
 
     def package_info(self):
         self.cpp_info.libs = ["hello-world"]
+        self.env_info.PATH.append(os.path.join(self.package_folder, "bin"))
+        if self.options.shared:
+            self.env_info.LD_LIBRARY_PATH.append(os.path.join(self.package_folder, "lib"))
+            self.env_info.DYLD_LIBRARY_PATH.append(os.path.join(self.package_folder, "lib"))

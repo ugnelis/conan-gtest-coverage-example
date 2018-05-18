@@ -25,3 +25,6 @@ class AppConan(ConanFile):
         self.copy("*.so", "bin", "lib")
         self.copy("*.dll", "bin", "bin")
         self.copy("*.dylib", "bin", "lib")
+
+    def package(self):
+        self.copy("*app*", src="bin", dst="bin", keep_path=False)
