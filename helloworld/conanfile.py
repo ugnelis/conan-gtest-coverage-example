@@ -12,18 +12,18 @@ class HelloWorldConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake"
     exports_sources = "*"
-
-    options = {"shared": [True, False]}
-    default_options = "shared=False"
+    options = {"shared": [True, False], "coverage": [True, False]}
+    default_options = "shared=False", "coverage=False"
 
     def build_requirements(self):
         self.build_requires("gtest/1.8.0@%s/%s" % ("bincrafters", "stable"))
 
     def build(self):
-        shared = {"BUILD_SHARED_LIBS": self.options.shared}
         cmake = CMake(self)
+        # Coverage.
+        if self.options.coverage:
+            cmake.definitions["COVERAGE"] = "ON"
         cmake.configure()
-        cmake.configure(defs=shared)
         cmake.install()
         cmake.test()
 

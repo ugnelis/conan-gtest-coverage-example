@@ -9,6 +9,15 @@ conan_basic_setup()
 # Setup testing.
 enable_testing()
 
+# Setup coverage.
+option(COVERAGE "Generate coverage data" OFF)
+if (COVERAGE)
+    if(CMAKE_COMPILER_IS_GNUCXX)
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
+    endif()
+endif()
+
 # Add headers.
 include_directories("${PROJECT_SOURCE_DIR}/include")
 
