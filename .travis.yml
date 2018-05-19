@@ -3,15 +3,23 @@ language: cpp
 compiler:
 - gcc
 
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.9
+    - g++-4.9
+    - python3
+    - python3-pip
+
 install:
-- sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-- sudo apt-get update -qq
-- sudo apt-get install -qq g++-4.9
-- sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.9
 # Install Conan.
-- pip install conan
+- sudo pip3 install conan
 # Automatic detection of your arch, compiler, etc.
 - conan user
+# Install cpp-coveralls.
+- sudo pip3 install cpp-coveralls
 
 script:
 # Build hello-world library.
@@ -28,3 +36,7 @@ script:
 - conan export .. ugnelis/stable
 - conan install .. -s build_type=Debug --build missing
 - conan build -sf .. ..
+
+after_success:
+- cd ../../
+- coveralls -E .*CMakeFiles.* > coveralls.log
