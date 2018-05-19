@@ -38,5 +38,5 @@ script:
 - conan build -sf .. ..
 
 after_success:
-- cd ../../helloworld/build
-- coveralls --root ../../ --build-root . -e bin/ -e lib/ -e package -e tests/ -E .*googletest.* -E .*CMakeFiles.* -i CMakeFiles/hello-world.dir/src > coveralls.log
+- cd ../../
+- coveralls > coveralls.log
