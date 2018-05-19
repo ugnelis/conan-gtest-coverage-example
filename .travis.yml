@@ -18,6 +18,8 @@ install:
 - sudo pip3 install conan
 # Automatic detection of your arch, compiler, etc.
 - conan user
+# Install cpp-coveralls.
+- sudo pip3 install cpp-coveralls
 
 script:
 # Build hello-world library.
@@ -34,3 +36,7 @@ script:
 - conan export .. ugnelis/stable
 - conan install .. -s build_type=Debug --build missing
 - conan build -sf .. ..
+
+after_success:
+- cd ../helloworld/build
+- coveralls --root ../../ --build-root . -e bin/ -e lib/ -e package -e tests/ -E .*googletest.* -E .*CMakeFiles.* -i CMakeFiles/hello-world.dir/src > coveralls.log
