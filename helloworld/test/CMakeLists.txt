@@ -7,7 +7,7 @@ target_link_libraries(hellow-world-test
         ${CONAN_LIBS}
         )
 
-ADD_TEST(NAME hellow-world-test
+add_test(NAME hellow-world-test
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin
         COMMAND hellow-world-test
         )

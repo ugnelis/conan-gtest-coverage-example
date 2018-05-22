@@ -39,4 +39,4 @@ script:
 
 after_success:
 - cd ../../
-- coveralls -E .*CMakeFiles.* > coveralls.log
+- coveralls -E .*CMakeFiles.* -e helloworld/test/ > coveralls.log
