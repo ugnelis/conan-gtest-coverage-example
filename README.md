@@ -1,4 +1,7 @@
-# conan-gtest-coverage-example [![Build Status](https://travis-ci.org/ugnelis/conan-gtest-coverage-example.svg?branch=master)](https://travis-ci.org/ugnelis/conan-gtest-coverage-example) [![Coverage Status](https://coveralls.io/repos/github/ugnelis/conan-gtest-coverage-example/badge.svg?branch=master)](https://coveralls.io/github/ugnelis/conan-gtest-coverage-example?branch=master)
+# conan-gtest-coverage-example
+[![Build Status](https://travis-ci.org/ugnelis/conan-gtest-coverage-example.svg?branch=master)](https://travis-ci.org/ugnelis/conan-gtest-coverage-example)
+[![Coverage Status](https://coveralls.io/repos/github/ugnelis/conan-gtest-coverage-example/badge.svg?branch=master)](https://coveralls.io/github/ugnelis/conan-gtest-coverage-example?branch=master)
+
 Conan.io package GTest with coverage implementation.
 
 ## Projects
