@@ -21,8 +21,9 @@ endif()
 # Add headers.
 include_directories("${PROJECT_SOURCE_DIR}/include")
 
-# Add libraries.
+# Add sources.
 add_library(${PROJECT_NAME}
+        ${PROJECT_SOURCE_DIR}/include/helloworld/helloboi.h
         ${PROJECT_SOURCE_DIR}/src/helloboi.cpp
         )
 

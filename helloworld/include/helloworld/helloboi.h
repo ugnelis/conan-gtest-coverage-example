@@ -2,6 +2,7 @@
 #define HELLO_WORLD_HELLOBOI_H
 
 #include <iostream>
+#include <string>
 
 namespace HelloWorld {
     /**
