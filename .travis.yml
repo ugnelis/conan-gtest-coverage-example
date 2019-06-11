@@ -11,15 +11,18 @@ addons:
     - gcc-4.9
     - g++-4.9
     - python3
-    - python3-pip
 
 install:
+# Install pip
+- curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+- python3.4 get-pip.py
 # Install Conan.
-- sudo pip3 install conan
+# - sudo pip3 install conan
+- sudo pip install conan
 # Automatic detection of your arch, compiler, etc.
 - conan user
 # Install cpp-coveralls.
-- sudo pip3 install cpp-coveralls
+- sudo pip install cpp-coveralls
 
 script:
 # Build hello-world library.
