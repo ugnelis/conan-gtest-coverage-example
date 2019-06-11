@@ -17,7 +17,6 @@ install:
 - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 - sudo python3.4 get-pip.py
 # Install Conan.
-# - sudo pip3 install conan
 - sudo pip install conan
 # Automatic detection of your arch, compiler, etc.
 - conan user
